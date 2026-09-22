@@ -2,6 +2,17 @@
 #include <stdbool.h>
 #include <string.h>
 
+/*
+    Job Application Form
+
+    This program collects information from a job applicant,
+    including their name, age, desired position, expected salary,
+    availability, and work authorization status.
+
+    It then displays the entered information as an
+    application confirmation.
+*/
+
 int main()
 {
     printf("\nJob application form\n");
@@ -37,7 +48,7 @@ int main()
     availability[strlen(availability) - 1] = '\0';
 
     printf("Are you authorized to work in Canada? (1 = yes, 0 = no): ");
-    int authorized;
+    int authorized = 0;
     scanf("%d", &authorized);
     is_authorized = authorized;
 
@@ -59,4 +70,6 @@ int main()
     {
         printf("Candidate is NOT authorized to work in Canada\n\n");
     }
+
+    return 0;
 }
