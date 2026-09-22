@@ -4,8 +4,8 @@
 
 int main()
 {
-    printf("Job application form\n");
-    printf("Please fill in the application\n");
+    printf("\nJob application form\n");
+    printf("Please fill in the application\n\n");
 
     // variable initialization
     char full_name[50] = "";
@@ -28,7 +28,7 @@ int main()
     fgets(desired_position, sizeof(desired_position), stdin);
     desired_position[strlen(desired_position) - 1] = '\0';
 
-    printf("Indicate your expected salary: ");
+    printf("Indicate your expected salary (hourly): ");
     scanf("%f", &expected_salary);
     getchar();
 
@@ -36,10 +36,27 @@ int main()
     fgets(availability, sizeof(availability), stdin);
     availability[strlen(availability) - 1] = '\0';
 
-    printf("Are you authorized to Work in Canada (true / false): ");
-    scanf("%b", is_authorized);
+    printf("Are you authorized to work in Canada? (1 = yes, 0 = no): ");
+    int authorized;
+    scanf("%d", &authorized);
+    is_authorized = authorized;
 
-    printf("%s\n%d\n%s\n%.2f\n%s\n%b\n", full_name, age, desired_position, expected_salary, availability, is_authorized);
+    // Output
+    printf("\n\nThank you for applying for the %s position.\n", desired_position);
+    printf("Application Confirmation!\n\n");
+    printf("---------------------------------\n");
 
-    return 0;
+    printf("Full Name: %s\n", full_name);
+    printf("Age: %d\n", age);
+    printf("Desired Position: %s\n", desired_position);
+    printf("Expected Salary: $%.2f\n", expected_salary);
+    printf("Availability: %s\n", availability);
+
+    if (is_authorized)
+        printf("Candidate is authorized to work in Canada\n\n");
+
+    else
+    {
+        printf("Candidate is NOT authorized to work in Canada\n\n");
+    }
 }
